@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container d-flex justify-content-center align-items-center" style="height: 80vh;">
+        <div class="bg-primary text-white p-4 rounded">
+            <h1>Completa el siguente test de ingles</h1>
+            <p id="question"></p>
+            <div id="options" style="display: inline-block; margin: 10px 5px"></div>
+            <button id="next-btn" onclick="nextQuestion()">Next</button>
+            <p id="result"></p>
+            <p id="score"></p>
+        </div>
+    </div>
+    <script src="{% static 'scripts/completar.js' %}"></script>
+{% endblock %}
+

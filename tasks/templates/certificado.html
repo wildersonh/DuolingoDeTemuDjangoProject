@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Certificado de Curso de Inglés</title>
+    <link rel="stylesheet" href="styles/certificado.css">
+</head>
+<body>
+    <div class="certificado">
+        <h1>Certificado de Participación</h1>
+        <p class="contenido">
+            Por medio del presente se certifica que<br><br>
+            <strong>{{ estudiante.nombre }}</strong><br><br>
+            ha completado satisfactoriamente <strong>{{ horas }}</strong> horas de formación en el curso de <strong>Inglés</strong>, impartido por nuestra institución dentro del marco del programa de capacitación.
+        </p>
+        <p class="fecha">
+            Fecha de emisión: {{ fecha_emision }}
+        </p>
+        <div class="firma">
+            <div>
+                Fundacion del idioma
+                <div class="linea"></div>
+                Organizacion
+            </div>
+            <div>
+                Oriana Albarran
+                <div class="linea"></div>
+                Instructor
+            </div>
+        </div>
+    </div>
+</body>
+</html>

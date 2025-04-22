@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h2>Nuestros Cursos</h2>
+    <div class="row justify-content-center">
+       
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'img/ingles.jpg' %}" alt="ingles" width="300p" height="200p" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">Ingles</h5>
+                  <p class="card-text">Aprende inglés con prácticas interactivas y profesores nativos.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'img/frances.jpg' %}" alt="ingles" width="300p" height="200p" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">Frances</h5>
+                  <p class="card-text">Sumérgete en el francés con contenido multimedia y dinámico.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'img/japones.jpg' %}" alt="ingles" width="300p" height="200p" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">Japones</h5>
+                  <p class="card-text">Domina el japonés con lecciones estructuradas y ejercicios prácticos</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

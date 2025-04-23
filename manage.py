@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# https://wildersonh.github.io/
 """Django's command-line utility for administrative tasks."""
 import os
 import sys

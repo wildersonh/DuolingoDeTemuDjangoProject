@@ -5,7 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from .form import TaskForm
 from .models import Task
-
+from django.utils import timezone
 # Create your views here.
 
 def home(request):
@@ -21,7 +21,6 @@ def signup(request):
         if request.POST['password1'] == request.POST['password2']: 
             try:
                 #registrer users
-           
                 user = User.objects.create_user(username=request.POST['username'], password=request.POST['password1'])
                 user.save()
                 login(request, user)
@@ -62,8 +61,33 @@ def create_tasks(request):
             })
 
 def tasks_details(request, task_id):
-    tasks = get_object_or_404(Task, pk=task_id)
-    return render(request, 'task_details.html', {'tasks': tasks})
+    if request.method == 'GET':
+        tasks = get_object_or_404(Task, pk=task_id, user=request.user)
+        form = TaskForm(instance=tasks)
+        return render(request, 'task_details.html', {'tasks': tasks, 'form': form})
+    else:
+        try: 
+            tasks = get_object_or_404(Task, pk=task_id, user=request.user)
+            form = TaskForm(request.POST, instance=tasks)
+            form.save()
+            return redirect('tasks')
+        except ValueError:
+            return render(request, 'task_details.html', {'tasks': tasks, 'form': form, 'error': 'Error actualizando'})
+             
+    
+
+def complete_task(request, task_id):
+    task = get_object_or_404(Task, pk=task_id, user=request.user)
+    if request.method == 'POST':
+        task.datacompleted = timezone.now()
+        task.save()
+        return redirect('tasks')
+    
+def delete_task(request, task_id):
+    task = get_object_or_404(Task, pk=task_id, user=request.user)
+    if request.method == 'POST':
+        task.delete()
+        return redirect('tasks')
 
 def cerrar_sesion(request):
     logout(request)

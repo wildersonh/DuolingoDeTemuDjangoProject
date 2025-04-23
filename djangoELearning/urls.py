@@ -29,5 +29,7 @@ urlpatterns = [
     path('tasks/<int:task_id>/delete', views.delete_task,name='delete_task'),
     path('logout/',views.cerrar_sesion, name='cerrar_sesion'),
     path('iniciar_sesion/',views.iniciar_sesion,name='iniciar_sesion'),
-    path('completar',views.completar,name='completar')
+    path('completar',views.completar,name='completar'),
+    path('certificado',views.certificado,name='certificado'),
+    path('preguntas',views.preguntas,name='preguntas')
 ]

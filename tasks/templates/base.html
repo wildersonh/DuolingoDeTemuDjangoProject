@@ -10,34 +10,35 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 </head>
 <body class="d-flex flex-column vh-100">
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="/">Language Learning</a>
+          <a class="navbar-brand text-white" href="/">Language Learning</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="/">Cursos</a>
+                <a class="nav-link text-white" href="/">Cursos</a>
               </li>
               
               {% if user.is_authenticated %}
                 <li class="nav-item">
-                  <a class="nav-link" href="/tasks">Tareas</a>
+                  <a class="nav-link text-white" href="/tasks">Tareas</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'tasks_completed' %}">Tareas completadas</a>
+                  <a class="nav-link text-white" href="{% url 'tasks_completed' %}">Tareas completadas</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/tasks/create">Crear tarea</a>
+                  <a class="nav-link text-white" href="/tasks/create">Crear tarea</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="/completar">completar</a></li>
-                <li class="nav-item"><a class="nav-link" href="/logout">Salir</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="/completar">completar</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="/preguntas">test</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="/logout">Salir</a></li>
               {% else %}
-                <li class="nav-item"><a class="nav-link" href="/signup">Registrar</a></li>
-                <li class="nav-item"><a class="nav-link" href="/iniciar_sesion">Iniciar sesión</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="/signup" >Registrar</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="/iniciar_sesion">Iniciar sesión</a></li>
               {% endif %}
             </ul>
           </div>
@@ -50,7 +51,7 @@
         </section>
     </div>
     
-    <footer class="bg-dark text-white text-center py-3 fixed-bottom">
+    <footer class="bg-dark text-white text-center py-3 ">
         <p>&copy; 2025 Language Learning. Todos los derechos reservados.</p>
     </footer>   
 

@@ -13,3 +13,10 @@ class Task(models.Model):
     def __str__(self):
         return self.title + '- by ' +self.user.username
     
+class Certificado(models.Model):
+    fecha = models.DateTimeField(null=True,blank=True)
+    completo = models.BooleanField(default=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.fecha + '- by ' +self.user.username

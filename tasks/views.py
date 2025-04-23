@@ -5,12 +5,15 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from .form import TaskForm
 from .models import Task
+from .models import Certificado
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+
+
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'home.html', {'user':request.user})
 
 def signup(request):
     if request.method == 'GET':
@@ -121,6 +124,18 @@ def iniciar_sesion(request):
         else:
             login(request, user)
             return redirect('tasks')
-        
+
+@login_required     
 def completar(request):
     return render(request, 'completar.html')
+
+@login_required
+def preguntas(request):
+    return render(request, 'preguntas.html')
+
+@login_required
+def certificado(request):
+    return render(request, 'certificado.html', {
+        'usuario': request.user,
+        'certificado': Certificado
+    })

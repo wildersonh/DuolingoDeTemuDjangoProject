@@ -3,9 +3,19 @@
 {% block content %}
 
 <div class="container">
-    <h2>Nuestros Cursos</h2>
-    <div class="row justify-content-center">
-       
+    {% if user.is_authenticated %}
+        <h1>
+            Bienvenido {{user}}
+        </h1>
+        <a href="/certificado" class="btn btn-primary">Tu certificado</a>
+    {% else %}
+        <h1>
+            Bienvenido te invito a registarte
+        </h1>
+    {% endif %}
+
+    <h3 class="display-3 text-center">Nuestros Cursos</h2>
+    <div class="row justify-content-center">    
         <div class="col-md-4">
             <div class="card" style="width: 18rem;">
                 <img src="{% static 'img/ingles.jpg' %}" alt="ingles" width="300p" height="200p" class="card-img-top">

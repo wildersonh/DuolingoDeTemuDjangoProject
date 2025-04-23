@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Tareas pendientes</h1>
+<h1>Tareas</h1>
 <ul>
     {% for task in tasks %}
         <li>
@@ -12,6 +12,7 @@
                 {% endif %}
                 <p>{{task.descriptio}}</p>
                 <p>{{task.user.username}}</p>
+                <p>{{task.datacompleted|date}}</p>
             </a>
         </li>
     {% endfor %}  

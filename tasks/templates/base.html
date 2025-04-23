@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <title>Aprende Idiomas en Línea</title>
     
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
@@ -23,10 +22,14 @@
               <li class="nav-item">
                 <a class="nav-link" href="/">Cursos</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/tasks">Tareas</a>
-              </li>
+              
               {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="/tasks">Tareas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/tasks/create">Crear tarea</a>
+                </li>
                 <li class="nav-item"><a class="nav-link" href="/completar">completar</a></li>
                 <li class="nav-item"><a class="nav-link" href="/logout">Salir</a></li>
               {% else %}

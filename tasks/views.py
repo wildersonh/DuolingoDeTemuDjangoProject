@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from .form import TaskForm
 from .models import Task
+
 # Create your views here.
 
 def home(request):
@@ -60,6 +61,9 @@ def create_tasks(request):
                 'error': 'No se guardo correctamente'
             })
 
+def tasks_details(request, task_id):
+    tasks = get_object_or_404(Task, pk=task_id)
+    return render(request, 'task_details.html', {'tasks': tasks})
 
 def cerrar_sesion(request):
     logout(request)

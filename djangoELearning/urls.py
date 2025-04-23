@@ -23,6 +23,7 @@ urlpatterns = [
     path('signup/', views.signup,name='signup'),
     path('tasks/', views.tasks,name='tasks'),
     path('tasks/create', views.create_tasks,name='create_tasks'),
+    path('tasks/<int:task_id>/', views.tasks_details,name='tasks_detail'),
     path('logout/',views.cerrar_sesion, name='cerrar_sesion'),
     path('iniciar_sesion/',views.iniciar_sesion,name='iniciar_sesion'),
     path('completar',views.completar,name='completar')

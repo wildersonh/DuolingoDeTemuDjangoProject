@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1>Crear Tareas</h1>
+    {{error}}
     <form action="/tasks/create" method="POST">
         {% csrf_token %}
 
